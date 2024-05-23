@@ -2,16 +2,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.lang.Thread;
 
-public class AccountDetails {
+public class AccountDetails extends Thread {
     private String accountNumber;
 
     public AccountDetails(String accountNumber){
         this.accountNumber = accountNumber;
     }
 
-
-    public void getAccountDetails(){
+    @Override
+    public void run(){
         Connection conn = DBconnection.getInstance().getConnection();
         try{
             String query = "Select * from banking_system.accounts" +" where accountnumber=(?)";
@@ -23,11 +24,12 @@ public class AccountDetails {
                 System.out.println("Account Number: "+result.getString("accountNumber"));
                 System.out.println("Balance: "+result.getInt("balance"));
             }
-            conn.close();
         }
         catch (SQLException e){
             e.printStackTrace();
         }
+
     }
+
 
 }

@@ -2,8 +2,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Random;
+import java.lang.Thread;
 
-public class CreateAccount {
+public class CreateAccount extends Thread {
     String account_holder_name;
     int balance;
 
@@ -11,7 +12,8 @@ public class CreateAccount {
         this.account_holder_name = account_holder_name;
         this.balance = balance;
     }
-    public void createIntoDb(){
+    @Override
+    public void run(){
         Connection conn = DBconnection.getInstance().getConnection();
         Random random = new Random();
         String accountNumber = String.valueOf(100000 + random.nextInt(900000));
