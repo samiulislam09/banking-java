@@ -51,7 +51,14 @@ public class Main {
                     break;
 
                 case "4":
-                    System.out.println("transfer balance");
+                    System.out.println("Enter sender Account Number: ");
+                    String senderAcNumber = scanner.nextLine();
+                    System.out.println("Enter Receiver Account Number: ");
+                    String receiverAcNumber = scanner.nextLine();
+                    System.out.println("Enter Amount To be Transfer: ");
+                    int amountToTransfer = scanner.nextInt();
+                    Transfer transfer = new Transfer(senderAcNumber, receiverAcNumber, amountToTransfer);
+                    transfer.start();
                     break;
 
                 case "5":

@@ -26,7 +26,6 @@ public class CreateAccount extends Thread {
             stmt.setString(3, accountNumber);
             System.out.println("Account Created Successfully\nYour account number is: "+accountNumber+" \nPlease remember this for future reference.");
             stmt.execute();
-            conn.close();
         }
         catch (SQLException e){
             e.printStackTrace();
