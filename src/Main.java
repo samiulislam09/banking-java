@@ -80,8 +80,6 @@ public class Main {
                     CreateAccount createAccount = new CreateAccount(account_holder_name, balance);
                     createAccount.start();
                     break;
-                default:
-                    System.out.println("Invalid input");
             }
         }
     }
