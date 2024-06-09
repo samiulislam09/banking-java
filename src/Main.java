@@ -6,6 +6,16 @@ import java.util.TimerTask;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
+
+        // Creating account
+        CreateAccount createAccount1 = new CreateAccount("john", 1000);
+        createAccount1.start();
+        CreateAccount createAccount2 = new CreateAccount("doe", 1000);
+        createAccount2.start();
+        CreateAccount createAccount3 = new CreateAccount("jack", 1000);
+        createAccount3.start();
+
+        // main program begins here
         Scanner scanner = new Scanner(System.in);
         String input;
         while(true){
