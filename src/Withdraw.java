@@ -34,6 +34,9 @@ public class Withdraw extends Thread {
                         updateStmt.setString(2, accountNumber);
                         updateStmt.execute();
                         System.out.println("Amount withdrawn successfully");
+                        int intAccountNumber = Integer.parseInt(accountNumber);
+                        UpdateTransaction upTransaction = new UpdateTransaction(intAccountNumber, "Withdraw", amount);
+                        upTransaction.storeTransactionData();
                     }
                 }
             }

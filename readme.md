@@ -27,6 +27,7 @@ CREATE TABLE accounts (
 ```
 CREATE TABLE transactions (
     transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+    account_id INT,
     FOREIGN KEY (account_id) REFERENCES banking.accounts(account_id),
     transaction_type VARCHAR(100) NOT NULL,
     amount INT NOT NULL,

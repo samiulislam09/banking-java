@@ -29,6 +29,9 @@ public class Deposit extends Thread {
                 updateStmt.setInt(1, balance);
                 updateStmt.setString(2, accountNumber);
                 updateStmt.execute();
+                int intAccountNumber = Integer.parseInt(accountNumber);
+                UpdateTransaction upTransaction = new UpdateTransaction(intAccountNumber, "Deposit", amount);
+                upTransaction.storeTransactionData();
                 System.out.println("Amount deposited successfully");
             }
         } catch (SQLException e) {
