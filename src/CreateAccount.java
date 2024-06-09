@@ -19,7 +19,7 @@ public class CreateAccount extends Thread {
         String accountNumber = String.valueOf(100000 + random.nextInt(900000));
         Account account = new Account(account_holder_name, balance, accountNumber);
         try{
-            String query = "INSERT INTO accounts (account_holder_name, balance, accountNumber)" +" VALUES (? , ?, ?)";
+            String query = "INSERT INTO accounts (account_holder_name, balance, accountNumber) VALUES (? , ?, ?)";
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, account.getAccount_holder_name());
             stmt.setInt(2, account.getBalance());

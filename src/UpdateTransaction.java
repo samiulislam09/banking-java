@@ -17,7 +17,7 @@ public class UpdateTransaction {
     public void storeTransactionData(){
         Connection conn = DBconnection.getInstance().getConnection();
         try{
-            String query = "INSERT INTO banking_system.transactions (account_id, transaction_type, amount)" +" VALUES (? , ?, ?)";
+            String query = "INSERT INTO banking.transactions (account_id, transaction_type, amount) VALUES (? , ?, ?)";
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setInt(1, accountId);
             stmt.setString(2, transactionType);

@@ -17,7 +17,7 @@ public class Withdraw extends Thread {
     public void run(){
             Connection conn = DBconnection.getInstance().getConnection();
             try{
-                String query = "Select * from banking_system.accounts" +" where accountnumber=(?)";
+                String query = "Select * from banking.accounts where accountnumber=(?)";
                 PreparedStatement stmt = conn.prepareStatement(query);
                 stmt.setString(1, accountNumber);
                 ResultSet result = stmt.executeQuery();
@@ -28,7 +28,7 @@ public class Withdraw extends Thread {
                     }
                     else{
                         balance -= amount;
-                        String updateQuery = "UPDATE banking_system.accounts SET balance = ? WHERE accountnumber = ?";
+                        String updateQuery = "UPDATE banking.accounts SET balance = ? WHERE accountnumber = ?";
                         PreparedStatement updateStmt = conn.prepareStatement(updateQuery);
                         updateStmt.setInt(1, balance);
                         updateStmt.setString(2, accountNumber);

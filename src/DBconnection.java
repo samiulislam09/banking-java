@@ -7,7 +7,7 @@ public class DBconnection {
     private DBconnection(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banking_system", "root", "password");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banking", "root", "password");
         } catch (Exception e) {
             e.printStackTrace();
         }

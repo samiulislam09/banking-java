@@ -15,7 +15,7 @@ public class AccountDetails extends Thread {
     public void run(){
         Connection conn = DBconnection.getInstance().getConnection();
         try{
-            String query = "Select * from banking_system.accounts" +" where accountnumber=(?)";
+            String query = "Select * from banking.accounts where accountnumber=(?)";
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, accountNumber);
             ResultSet result = stmt.executeQuery();

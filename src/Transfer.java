@@ -20,8 +20,8 @@ public class Transfer extends Thread{
     @Override
     public void run(){
         Connection conn = DBconnection.getInstance().getConnection();
-        String getDataQuery = "Select * from banking_system.accounts where accountNumber=(?)";
-        String updateQuery = "UPDATE banking_system.accounts SET balance = ? WHERE accountNumber=(?)";
+        String getDataQuery = "SELECT * FROM banking.accounts WHERE accountNumber=(?)";
+        String updateQuery = "UPDATE banking.accounts SET balance = ? WHERE accountNumber=(?)";
         try {
             PreparedStatement fromAccountStmt = conn.prepareStatement(getDataQuery);
             fromAccountStmt.setString(1, fromAccountNumber);
@@ -38,7 +38,7 @@ public class Transfer extends Thread{
                 upTransaction.storeTransactionData();
 
             }
-            getDataQuery = "Select * from banking_system.accounts where accountNumber=(?)";
+            getDataQuery = "SELECT * FROM banking.accounts WHERE accountNumber=(?)";
             PreparedStatement toAccountStmt = conn.prepareStatement(getDataQuery);
             toAccountStmt.setString(1, toAccountNumber);
             ResultSet toAccountResult = toAccountStmt.executeQuery();

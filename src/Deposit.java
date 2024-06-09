@@ -16,7 +16,7 @@ public class Deposit extends Thread {
     @Override
     public void run() {
         Connection conn = DBconnection.getInstance().getConnection();
-        String query = "Select * from banking_system.accounts where accountnumber=(?)";
+        String query = "Select * from banking.accounts where accountnumber=(?)";
         try{
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, accountNumber);
@@ -24,7 +24,7 @@ public class Deposit extends Thread {
             if(result.next()){
                 int balance = result.getInt("balance");
                 balance += amount;
-                String updateQuery = "UPDATE banking_system.accounts SET balance = ? WHERE accountnumber = ?";
+                String updateQuery = "UPDATE banking.accounts SET balance = ? WHERE accountnumber = ?";
                 PreparedStatement updateStmt = conn.prepareStatement(updateQuery);
                 updateStmt.setInt(1, balance);
                 updateStmt.setString(2, accountNumber);
